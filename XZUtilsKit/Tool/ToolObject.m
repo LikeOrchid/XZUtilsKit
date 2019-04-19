@@ -29,6 +29,7 @@
  
  @param phone 手机号
  @return 结果
+*/
 + (BOOL)validatePhone:(NSString *)phone {
     if (phone.length != 11) {
         

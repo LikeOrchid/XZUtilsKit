@@ -1,17 +1,18 @@
 //
-//  VCBase+VCBaseCate.m
-//  OwenStaffIOS
+//  UIViewController+VCCate.m
+//  XZUtilsKitDemo
 //
-//  Created by zong_xing on 2019/4/2.
-//  Copyright © 2019年 yanyu. All rights reserved.
+//  Created by yanyu on 2019/4/19.
+//  Copyright © 2019 yanyu. All rights reserved.
 //
 
-#import "VCBase+VCBaseCate.h"
+#import "UIViewController+VCCate.h"
 
-@implementation VCBase (VCBaseCate)
--(void)showAlert:(NSString *)message
-     withSuccess:(void(^)(void))success
-      withCancel:(void(^)(void))cancel{
+@implementation UIViewController (VCCate)
+-(void)showAlertTitle:(NSString*)title
+              withMsg:(NSString *)message
+          withSuccess:(void(^)(void))success
+           withCancel:(void(^)(void))cancel{
     UIAlertController * alert =[UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         if (cancel) {

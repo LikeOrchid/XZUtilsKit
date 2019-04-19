@@ -8,14 +8,7 @@
 
 #ifndef XZUtilHeader_h
 #define XZUtilHeader_h
-#import "UIImageView+ImageViewTool.h"
-#import "UILabel+LableTool.h"
-#import "InputAlertTool.h"
-#import "UIColor+HexColor.h"
-#import "ToolObject.h"
-#import "CacheTool.h"
-#import "UIView+XZExtension.h"
-#import "UIImage+ImageTool.h"
-#import "NSString+StringTool.h"
-#import "UITableView+EstimateHeight.h"
+#import "CateHeader.h"
+#import "ToolHeader.h"
+#import "BaseHeader.h"
 #endif /* XZUtilHeader_h */
