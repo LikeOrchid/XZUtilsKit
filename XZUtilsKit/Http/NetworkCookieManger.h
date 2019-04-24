@@ -6,7 +6,7 @@
 //  Copyright © 2019 yons. All rights reserved.
 //
 
-#import "YYNetworkManager.h"
+#import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
