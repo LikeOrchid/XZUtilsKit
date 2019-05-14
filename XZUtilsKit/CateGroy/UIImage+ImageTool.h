@@ -70,4 +70,11 @@
  @return image
  */
 +(NSData *)compressOriginalImage:(UIImage *)image toMaxDataSizeKBytes:(CGFloat)size;
+/**
+ 设置黑白图片
+ 
+ @param image tup
+ @return 图片
+ */
++ (UIImage *)blackAndWhite:(UIImage *)image;
 @end

@@ -218,4 +218,24 @@
     }
     return data;
 }
+/**
+ 设置黑白图片
+ 
+ @param image tup
+ @return 图片
+ */
++ (UIImage *)blackAndWhite:(UIImage *)image
+{
+    CIImage *beginImage = [CIImage imageWithCGImage:image.CGImage];
+    
+    CIImage *blackAndWhite = [CIFilter filterWithName:@"CIColorControls" keysAndValues:kCIInputImageKey, beginImage, @"inputBrightness", @0.0, @"inputContrast", @2.5, @"inputSaturation", @0.0, nil].outputImage;
+    CIImage *output = [CIFilter filterWithName:@"CIExposureAdjust" keysAndValues:kCIInputImageKey, blackAndWhite, @"inputEV", @1.0, nil].outputImage;
+    
+    CIContext *context = [CIContext contextWithOptions:nil];
+    CGImageRef cgiimage = [context createCGImage:output fromRect:output.extent];
+    UIImage *newImage = [UIImage imageWithCGImage:cgiimage scale:image.scale orientation:image.imageOrientation];
+    
+    CGImageRelease(cgiimage);
+    return newImage;
+}
 @end
