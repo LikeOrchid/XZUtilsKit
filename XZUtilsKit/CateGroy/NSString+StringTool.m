@@ -208,4 +208,24 @@
     
     return  result;
 }
+
++ (NSString *)htmlEntityDecode: (NSString *)str{
+    
+    str = [str stringByReplacingOccurrencesOfString:@"&quot;" withString:@"\""];
+    str = [str stringByReplacingOccurrencesOfString:@"&apos;" withString:@"'"];
+    str = [str stringByReplacingOccurrencesOfString:@"&amp;" withString:@"&"];
+    str = [str stringByReplacingOccurrencesOfString:@"&lt;" withString:@"<"];
+    str = [str stringByReplacingOccurrencesOfString:@"&gt;" withString:@">"];
+    str = [str stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@"\n"];
+    return str;
+}
++(NSString *)removeHtmlDecode:(NSString *)str {
+    str = [str stringByReplacingOccurrencesOfString:@"<p>" withString:@""];
+    str = [str stringByReplacingOccurrencesOfString:@"</p>" withString:@""];
+    str = [str stringByReplacingOccurrencesOfString:@"<br/>" withString:@""];
+    
+    NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@"@／：；（）¥「」＂、[]{}#%-*+=_\\|~＜＞$€^•'@#$%^&*()_+'\""];
+    str = [str stringByTrimmingCharactersInSet:set];
+    return str;
+}
 @end
