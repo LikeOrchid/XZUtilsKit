@@ -6,9 +6,9 @@
 //  Copyright © 2019 yanyu. All rights reserved.
 //
 
-#import "BaseTextView.h"
+#import "PlaceholderTextView.h"
 
-@implementation BaseTextView
+@implementation PlaceholderTextView
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];

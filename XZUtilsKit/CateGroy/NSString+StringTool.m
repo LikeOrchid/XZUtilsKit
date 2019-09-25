@@ -50,32 +50,8 @@
     CGSize size = [self boundingRectWithSize:CGSizeMake(width,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dic context:nil].size;
     return size.height;
 }
-/**
- 拼接 p 标签
- 
- @return htmlstr
- */
--(NSString*)getWebPLableString{
-    NSString *htmlStr = [NSString stringWithFormat:@"<html> \n"
-                             "<head> \n"
-                             "<style type=\"text/css\"> \n"
-                             "body {font-size:15px;}\n"
-                             "</style> \n"
-                             "</head> \n"
-                             "<body>"
-                             "<script type='text/javascript'>"
-                             "window.onload = function(){\n"
-                             "var $img = document.getElementsByTagName('img');\n"
-                             "for(var p in  $img){\n"
-                             " $img[p].style.width = '100%%';\n"
-                             "$img[p].style.height ='auto'\n"
-                             "}\n"
-                             "}"
-                             "</script>%@"
-                             "</body>"
-                             "</html>",self];
-    return htmlStr;
-}
+
+#pragma mark -时间字符
 /**
  后去当前时间字符
  
@@ -84,7 +60,7 @@
  */
 +(NSString *)getCurrentDateString {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *date = [dateFormatter stringFromDate:[NSDate date]];
     
     return date;
@@ -107,31 +83,6 @@
     
     return string;
     
-}
-
-/**
- 是否是 中文
- 
- @param userName 字符
- @return 结果
- */
-+ (BOOL)isChinese:(NSString *)userName
-{
-    NSString *match = @"(^[\u4e00-\u9fa5]+$)";
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF matches %@", match];
-    return [predicate evaluateWithObject:userName];
-}
-/**
- 数字转中文，如 111 ->一百一十一
- 
- @param number 数字
- @return 字符
- */
-+(NSString *)numberToString:(int)number {
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    formatter.numberStyle = kCFNumberFormatterRoundHalfDown;
-    NSString *string = [formatter stringFromNumber:[NSNumber numberWithInt:number]];
-    return string;
 }
 
 /**
@@ -209,6 +160,37 @@
     return  result;
 }
 
+
+#pragma mark -html 字符串
+/**
+ 拼接 p 标签
+ 
+ @return htmlstr
+ */
+-(NSString*)getWebPLableString{
+    NSString *htmlStr = [NSString stringWithFormat:@"<html> \n"
+                             "<head> \n"
+                             "<style type=\"text/css\"> \n"
+                             "body {font-size:15px;}\n"
+                             "</style> \n"
+                             "</head> \n"
+                             "<body>"
+                             "<script type='text/javascript'>"
+                             "window.onload = function(){\n"
+                             "var $img = document.getElementsByTagName('img');\n"
+                             "for(var p in  $img){\n"
+                             " $img[p].style.width = '100%%';\n"
+                             "$img[p].style.height ='auto'\n"
+                             "}\n"
+                             "}"
+                             "</script>%@"
+                             "</body>"
+                             "</html>",self];
+    return htmlStr;
+}
+/**
+ * 常用标签的替换 标签
+*/
 + (NSString *)htmlEntityDecode: (NSString *)str{
     
     str = [str stringByReplacingOccurrencesOfString:@"&quot;" withString:@"\""];
@@ -219,6 +201,9 @@
     str = [str stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@"\n"];
     return str;
 }
+/**
+ * 删掉P标签
+ */
 +(NSString *)removeHtmlDecode:(NSString *)str {
     str = [str stringByReplacingOccurrencesOfString:@"<p>" withString:@""];
     str = [str stringByReplacingOccurrencesOfString:@"</p>" withString:@""];
@@ -228,4 +213,116 @@
     str = [str stringByTrimmingCharactersInSet:set];
     return str;
 }
+
+#pragma mark- json字符
+/*!
+ 
+ * @brief 把格式化的JSON格式的字符串转换成字典
+ 
+ * @param jsonString JSON格式的字符串
+ 
+ * @return 返回字典
+ 
+ */
+
++ (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString {
+    if (jsonString == nil) {
+        return nil;
+    }
+    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *err;
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&err];
+    if(err) {
+        NSLog(@"json解析失败：%@",err);
+        return nil;
+    }
+    return dic;
+}
+/**
+ * 将字段转化为json 字符串
+ */
++ (NSString*)dictionaryToJson:(NSDictionary *)dic
+{
+    NSError *parseError = nil;
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&parseError];
+    
+    return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+}
+#pragma mark-空字符串
+
+/**
+ *  判断 空字符串
+ */
++(NSString*)judeNullString:(NSString *)str{
+    
+    if (str.length == 0 ||str == nil || [str isEqual:[NSNull null]]) {
+        return @" ";
+    }
+    return str;
+}
+
+#pragma mark-其它
+
+/**
+ 是否是 中文
+ 
+ @param userName 字符
+ @return 结果
+ */
++ (BOOL)isChinese:(NSString *)userName
+{
+    NSString *match = @"(^[\u4e00-\u9fa5]+$)";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF matches %@", match];
+    return [predicate evaluateWithObject:userName];
+}
+
+/**
+ 数字转中文，如 111 ->一百一十一
+ 
+ @param number 数字
+ @return 字符
+ */
++(NSString *)numberToString:(int)number {
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    formatter.numberStyle = kCFNumberFormatterRoundHalfDown;
+    NSString *string = [formatter stringFromNumber:[NSNumber numberWithInt:number]];
+    return string;
+}
+
+/**
+ 查找子字符串在父字符串中的所有位置
+ @param content 父字符串
+ @param tab 子字符串
+ @return 返回位置数组
+ */
+
++ (NSMutableArray*)getSubStringRanges:(NSString *)content str:(NSString *)tab {
+    int location = 0;
+    NSMutableArray *locationArr = [NSMutableArray new];
+    NSRange range = [content rangeOfString:tab];
+    if (range.location == NSNotFound){
+        return locationArr;
+    }
+    //声明一个临时字符串,记录截取之后的字符串
+    NSString * subStr = content;
+    while (range.location != NSNotFound) {
+        if (location == 0) {
+            location += range.location;
+        } else {
+            location += range.location + tab.length;
+        }
+        //记录位置
+        NSNumber *number = [NSNumber numberWithUnsignedInteger:location];
+        [locationArr addObject:number];
+        //每次记录之后,把找到的字串截取掉
+        subStr = [subStr substringFromIndex:range.location + range.length];
+        NSLog(@"subStr %@",subStr);
+        range = [subStr rangeOfString:tab];
+        NSLog(@"rang %@",NSStringFromRange(range));
+    }
+    return locationArr;
+}
+
 @end

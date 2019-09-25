@@ -43,11 +43,18 @@
  @return 控制器
  */
 - (UIViewController *)sui_currentVC;
+/**
+ * 删除所有子视图
+ */
+
+-(void)removeAllSubViews;
+
+/**
+ * 添加阴影
+ */
 
 - (void)dropShadowWithOffset:(CGSize)offset radius:(CGFloat)radius color:(UIColor *)color opacity:(CGFloat)opacity;//使用失败
-
 -(void)addViewshadow;
 -(void)addViewBuottomShadow;
--(void)removeAllSubViews;
 
 @end

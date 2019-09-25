@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BaseTextView : UITextView
+@interface PlaceholderTextView : UITextView
 
 @property (nonatomic, strong) NSString *placeholder;
 

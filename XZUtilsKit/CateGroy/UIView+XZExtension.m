@@ -221,6 +221,13 @@
     return self.size_sd;
 }
 
+
+#pragma mark - 其它
+/**
+得到view 当前的控制器
+
+@return 控制器
+*/
 - (UIViewController *)sui_currentVC
 {
     Class aClass = NSClassFromString(@"UIViewController");
@@ -232,6 +239,17 @@
     }
     return nil;
 }
+
+/**
+* 删除所有子视图
+*/
+-(void)removeAllSubViews{
+    for (UIView *subview in self.subviews) {
+        [subview removeFromSuperview];
+    }
+}
+
+#pragma mark -阴影
 
 //设置阴影
 - (void)dropShadowWithOffset:(CGSize)offset radius:(CGFloat)radius color:(UIColor *)color opacity:(CGFloat)opacity {
@@ -258,9 +276,5 @@
     self.layer.shadowRadius = 1.5;//阴影半径，默认3
 }
 
--(void)removeAllSubViews{
-    for (UIView *subview in self.subviews) {
-        [subview removeFromSuperview];
-    }
-}
+
 @end

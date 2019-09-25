@@ -11,5 +11,4 @@
 #import "BaseCollectionView.h"
 #import "BaseCollectionViewCell.h"
 #import "BaseTableVIew.h"
-#import "BaseTextView.h"
 #endif /* BaseHeader_h */

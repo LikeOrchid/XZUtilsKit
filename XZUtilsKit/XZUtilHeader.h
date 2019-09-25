@@ -11,4 +11,5 @@
 #import "CateHeader.h"
 #import "ToolHeader.h"
 #import "BaseHeader.h"
+#import "ExtendHeader.h"
 #endif /* XZUtilHeader_h */

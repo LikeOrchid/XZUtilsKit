@@ -77,4 +77,11 @@
  @return 图片
  */
 + (UIImage *)blackAndWhite:(UIImage *)image;
+/**
+ 将视图切成图片
+ 
+ @param view 视图
+ @return 图片
+ */
+-(UIImage*)convertViewToImage:(UIView*)view;
 @end

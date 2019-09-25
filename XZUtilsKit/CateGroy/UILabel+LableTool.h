@@ -46,4 +46,11 @@
  @param rect 图片的位置
  */
 -(void)setLableImageName:(NSString *)name withFrame:(CGRect)rect;
+/**
+ 设置多子字符串 字体颜色
+ 
+ @param colors 颜色数组一一对应
+ @param strs  子字符串数组一一对应
+ */
+-(void)setLableColors:(NSArray<UIColor*>*)colors whitStrings:(NSArray<NSString *>*)strs;
 @end

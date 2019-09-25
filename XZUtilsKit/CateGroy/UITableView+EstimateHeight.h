@@ -9,14 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface UITableView (EstimateHeight)
-
-/**
- self.estimatedRowHeight = 0;
- self.estimatedSectionHeaderHeight = 0;
- self.estimatedSectionFooterHeight = 0;
- */
--(void)updateEsTimateHight;
-
 /**
  设置简单的文字空视图
 

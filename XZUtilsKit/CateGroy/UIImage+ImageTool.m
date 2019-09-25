@@ -238,4 +238,19 @@
     CGImageRelease(cgiimage);
     return newImage;
 }
+
+/**
+ 将视图切成图片
+
+ @param view 视图
+ @return 图片
+ */
+-(UIImage*)convertViewToImage:(UIView*)view{
+    CGSize size = view.bounds.size;
+    // 下面方法，第一个参数表示区域大小。第二个参数表示是否是非透明的。如果需 要显示半透明效果，需要传NO，否则传YES。第三个参数就是屏幕密度了
+    UIGraphicsBeginImageContextWithOptions(size,YES, [UIScreen mainScreen].scale); [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage*image =UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
 @end

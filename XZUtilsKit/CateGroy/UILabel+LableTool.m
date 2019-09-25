@@ -7,6 +7,7 @@
 //
 
 #import "UILabel+LableTool.h"
+#import "NSString+StringTool.h"
 #import <objc/runtime.h>
 /// 获取UIEdgeInsets在水平方向上的值
 CG_INLINE CGFloat
@@ -128,5 +129,33 @@ const void *kAssociatedYf_contentInsets;
     
     // 用label的attributedText属性来使用富文本
     self.attributedText =attri;
+}
+
+/**
+ 设置多子字符串 字体颜色
+
+ @param colors 颜色数组一一对应
+ @param strs  子字符串数组一一对应
+ */
+-(void)setLableColors:(NSArray<UIColor*>*)colors whitStrings:(NSArray<NSString *>*)strs {
+ 
+    NSMutableArray * rangesArray = [NSMutableArray array];
+    for (NSString *str in strs) {
+        NSArray *ranges = [NSString getSubStringRanges:self.text str:str];
+        [rangesArray addObject:ranges];
+    }
+    
+    NSMutableAttributedString * attributeString = [[NSMutableAttributedString alloc]initWithString:self.text];
+
+    for (int i = 0; i<rangesArray.count; i++) {
+        NSArray *ranges = [rangesArray objectAtIndex:i];
+        UIColor*color = [colors objectAtIndex:i];
+        NSString *str = [strs objectAtIndex:i];
+        
+        for (NSNumber *location in ranges) {
+            NSInteger loc = [location integerValue];
+            [attributeString addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(loc, str.length)];
+        }
+    }
 }
 @end

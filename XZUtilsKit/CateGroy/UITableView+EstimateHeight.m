@@ -9,12 +9,6 @@
 #import "UITableView+EstimateHeight.h"
 @implementation UITableView (EstimateHeight)
 
--(void)updateEsTimateHight {
-    self.estimatedRowHeight = 0;
-    self.estimatedSectionHeaderHeight = 0;
-    self.estimatedSectionFooterHeight = 0;
-}
-
 /**
  设置简单的文字空视图
  
