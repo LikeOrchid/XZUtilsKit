@@ -157,5 +157,6 @@ const void *kAssociatedYf_contentInsets;
             [attributeString addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(loc, str.length)];
         }
     }
+    self.attributedText = attributeString;
 }
 @end
