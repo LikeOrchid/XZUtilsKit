@@ -11,4 +11,5 @@
 #import "BaseCollectionView.h"
 #import "BaseCollectionViewCell.h"
 #import "BaseTableVIew.h"
+#import "BaseTabarCenterBtn.h"
 #endif /* BaseHeader_h */
