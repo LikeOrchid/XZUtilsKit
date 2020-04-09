@@ -6,9 +6,9 @@
 //  Copyright © 2018年 zong_xing. All rights reserved.
 //
 
-#import "BaseTableVIew.h"
+#import "BaseTableView.h"
 #import "BaseCollectionView.h"
-@implementation BaseTableVIew
+@implementation BaseTableView
 -(instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style{
     self = [super initWithFrame:frame style:style];
     if (self) {
@@ -39,7 +39,7 @@
                  basecview.vcCanScroll = YES;
             }
             else if ([subview isKindOfClass:[UITableView class]]){
-                BaseTableVIew * basecview =(BaseTableVIew *)subview;
+                BaseTableView * basecview =(BaseTableView *)subview;
                 basecview.vcCanScroll = YES;
             }
         }

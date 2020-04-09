@@ -159,4 +159,26 @@ const void *kAssociatedYf_contentInsets;
     }
     self.attributedText = attributeString;
 }
+
+/**
+ *  MARK:- 指定文字大小
+ */
+-(void)setLaberFont:(UIFont *)font withStr:(NSString *)string {
+    NSMutableAttributedString * attributeString = [[NSMutableAttributedString alloc]initWithString:self.text];
+    NSRange rang = [self.text rangeOfString:string];
+    [attributeString addAttribute:NSFontAttributeName value:font range:NSMakeRange(rang.location, string.length)];
+    self.attributedText = attributeString;
+}
+
+/**
+ *  MARK:- 划线
+ *      NSUnderlineStyleSingle 下划线
+ */
+-(void)setLablerlineType:(NSUnderlineStyle)style WithStr:(NSString *)string {
+  
+    NSMutableAttributedString * attributeString = [[NSMutableAttributedString alloc]initWithString:self.text];
+    NSRange rang = [self.text rangeOfString:string];
+    [attributeString addAttribute:NSStrikethroughStyleAttributeName value:[NSNumber numberWithInteger:style] range:NSMakeRange(rang.location, string.length)];
+    self.attributedText = attributeString;
+}
 @end

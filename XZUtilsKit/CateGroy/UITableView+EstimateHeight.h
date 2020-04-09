@@ -16,4 +16,5 @@
  @param str 字符
  */
 -(void)setNormalListView:(NSInteger )num  withString:(NSString *)str;
+
 @end

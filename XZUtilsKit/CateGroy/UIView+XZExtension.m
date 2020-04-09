@@ -276,5 +276,68 @@
     self.layer.shadowRadius = 1.5;//阴影半径，默认3
 }
 
+-(void)ShowNotDataIcon {
+    UIImageView * icon = [UIImageView new];
+    icon.backgroundColor = [UIColor redColor];
+    [self addSubview:icon];
+    
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:icon
+                                                     attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual
+                                                        toItem:self
+                                                     attribute:NSLayoutAttributeCenterY
+                                                    multiplier:1
+                                                      constant:0]];
+    
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:icon
+                                                     attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual
+                                                        toItem:self
+                                                     attribute:NSLayoutAttributeCenterX
+                                                    multiplier:1
+                                                      constant:0]];
+    
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:icon
+                                                     attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual
+                                                        toItem:self
+                                                     attribute:NSLayoutAttributeWidth
+                                                    multiplier:1
+                                                      constant:100]];
+    
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:icon
+                                                     attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual
+                                                        toItem:self
+                                                     attribute:NSLayoutAttributeHeight
+                                                    multiplier:1
+                                                      constant:100]];
+
+    
+}
+
 
 @end
+/*
+ 
+ //    NSDictionary *metrics = @{@"padding":@30,@"leftPadding":@10,@"rightPadding":@10,@"height":@40,@"width":@50}
+ //
+ //
+ //    self addConstraint:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[icon(100)]" options:0 metrics:metrics views:<#(nonnull NSDictionary<NSString *,id> *)#>]
+ //垂直居中
+ [self.view addConstraint:[NSLayoutConstraint constraintWithItem:BackView
+                                                       attribute:NSLayoutAttributeCenterY
+                                                       relatedBy:NSLayoutRelationEqual
+                                                          toItem:self.view
+                                                       attribute:NSLayoutAttributeCenterY
+                                                      multiplier:1
+                                                        constant:0]];
+ //水平居中
+ [self.view addConstraint:[NSLayoutConstraint constraintWithItem:BackView
+                                                       attribute:NSLayoutAttributeCenterX
+                                                       relatedBy:NSLayoutRelationEqual
+                                                          toItem:self.view
+                                                       attribute:NSLayoutAttributeCenterX
+                                                      multiplier:1
+                                                        constant:0]];
+
+//约束条件
+ [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[BackView(320)]" options:0 metrics:metrics views:viewsButton]];
+ [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[BackView(350)]" options:0 metrics:metrics views:viewsButton]];
+ */

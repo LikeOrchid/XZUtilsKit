@@ -57,6 +57,15 @@
 +(NSString *)timeDifference:(NSDate *)beginDate;
 
 /**
+ *  计算剩余时间
+ *
+ *  @param endTime   结束日期
+ *
+ *  @return 剩余时间
+ */
++(NSInteger)getCountDownStringWithEndTime:(NSString *)endTime;
+
+/**
  发布时间：如，几个小时前
 
  @param str 时间字符串 yyyy-MM-dd HH:mm:ss

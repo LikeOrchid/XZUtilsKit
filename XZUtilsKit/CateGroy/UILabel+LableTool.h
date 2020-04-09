@@ -53,4 +53,14 @@
  @param strs  子字符串数组一一对应
  */
 -(void)setLableColors:(NSArray<UIColor*>*)colors whitStrings:(NSArray<NSString *>*)strs;
+
+/**
+ *  MARK:- 指定文字大小
+ */
+-(void)setLaberFont:(UIFont *)font withStr:(NSString *)string;
+/**
+ *  MARK:- 划线
+ *      NSUnderlineStyleSingle 下划线
+ */
+-(void)setLablerlineType:(NSUnderlineStyle)style WithStr:(NSString *)string;
 @end

@@ -81,7 +81,8 @@
  将视图切成图片
  
  @param view 视图
+ @param ispng 是否含透明通道
  @return 图片
  */
--(UIImage*)convertViewToImage:(UIView*)view;
++(UIImage*)convertViewToImage:(UIView*)view isPng:(BOOL)ispng;
 @end

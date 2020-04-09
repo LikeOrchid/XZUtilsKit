@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BaseTableVIew : UITableView<UIGestureRecognizerDelegate>
+@interface BaseTableView : UITableView<UIGestureRecognizerDelegate>
 @property (nonatomic, assign) BOOL canScroll;
 @property (nonatomic,assign) BOOL isSub;
 @property (nonatomic, assign) BOOL vcCanScroll;

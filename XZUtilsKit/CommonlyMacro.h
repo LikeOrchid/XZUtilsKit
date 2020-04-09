@@ -45,7 +45,7 @@
 
 #define kTabbarHeight self.navigationController.tabBarController.tabBar.frame.size.height
 
-#define toString(obj) [NSString stringWithFormat:@"%@",obj]
+#define kBottomSafeHeight   (CGFloat)(kTopHeight>64?(34):(0))
 
 // Log日志
 #ifndef __OPTIMIZE__

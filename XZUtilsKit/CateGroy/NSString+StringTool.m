@@ -114,6 +114,32 @@
     
     return callTime;
 }
+
+/**
+ *  计算剩余时间
+ *
+ *  @param endTime   结束日期
+ *
+ *  @return 剩余时间
+ */
++(NSInteger)getCountDownStringWithEndTime:(NSString *)endTime {
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
+    NSDate *now = [NSDate date];
+    NSTimeZone *zone = [NSTimeZone systemTimeZone];//设置时区
+    NSInteger interval = [zone secondsFromGMTForDate: now];
+    NSDate *localDate = [now  dateByAddingTimeInterval: interval];
+    endTime = [NSString stringWithFormat:@"%@ 23:59:59", endTime];
+    NSDate *endDate = [dateFormatter dateFromString:endTime];
+    NSInteger endInterval = [zone secondsFromGMTForDate: endDate];
+    NSDate *end = [endDate dateByAddingTimeInterval: endInterval];
+    NSUInteger voteCountTime = ([end timeIntervalSinceDate:localDate]);
+    
+    return voteCountTime;
+}
+
 /**
  发布时间：如，几个小时前
  

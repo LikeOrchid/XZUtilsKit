@@ -57,4 +57,6 @@
 -(void)addViewshadow;
 -(void)addViewBuottomShadow;
 
+-(void)ShowNotDataIcon;
+
 @end
