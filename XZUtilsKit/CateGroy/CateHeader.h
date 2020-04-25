@@ -19,6 +19,7 @@
 #import "UIView+XZExtension.h"
 #import "UITableView+EstimateHeight.h"
 #import "UIViewController+VCCate.h"
+#import "UITextField+InputControl.h"
 
 #import "NSData+PCM.h"
 #endif /* CateHeader_h */
