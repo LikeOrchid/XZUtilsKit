@@ -75,3 +75,5 @@
  *
  */
 -(void)setLablerAttKey:(NSAttributedStringKey)key withAttVaule:(id)value    WithStr:(NSString *)string;
+
+@end

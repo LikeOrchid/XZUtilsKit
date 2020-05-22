@@ -12,7 +12,6 @@
 #import "UIImage+ImageTool.h"
 #import "NSString+StringTool.h"
 #import "NSObject+ObjectTool.h"
-#import "NSNumber+NumberTool.h"
 
 #import "UIImageView+ImageViewTool.h"
 #import "UIColor+HexColor.h"

@@ -6,7 +6,6 @@
 //  Copyright © 2017年 Toommi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 @interface NSString (StringTool)
 #pragma mark - 文本宽高
@@ -146,4 +145,5 @@
  */
 
 +(NSMutableArray*)getSubStringRanges:(NSString *)content str:(NSString *)tab;
+
 @end

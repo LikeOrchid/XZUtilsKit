@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "XZUtilsKit"
-  s.version      = "0.1.2"
+  s.version      = "0.1.3"
   s.summary      = "custem tool. summary"
   s.description  = "custem tool description"
   s.homepage     = "https://github.com/LikeOrchid/XZUtilsKit"
