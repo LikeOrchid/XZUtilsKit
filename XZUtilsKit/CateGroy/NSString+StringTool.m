@@ -240,6 +240,13 @@
     return str;
 }
 
+//正则去除标签
++(NSString *)removeHtmlWithString:(NSString *)htmlString{
+    NSRegularExpression * regularExpretion=[NSRegularExpression regularExpressionWithPattern:@"<[^>]*>|\n" options:0 error:nil];
+    htmlString = [regularExpretion stringByReplacingMatchesInString:htmlString options:NSMatchingReportProgress range:NSMakeRange(0, htmlString.length) withTemplate:@""];
+    return htmlString;
+}
+
 #pragma mark- json字符
 /*!
  

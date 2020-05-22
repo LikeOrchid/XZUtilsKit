@@ -60,7 +60,18 @@
 -(void)setLaberFont:(UIFont *)font withStr:(NSString *)string;
 /**
  *  MARK:- 划线
- *      NSUnderlineStyleSingle 下划线
+ *      中滑
  */
--(void)setLablerlineType:(NSUnderlineStyle)style WithStr:(NSString *)string;
-@end
+-(void)setLablerCenterlineWithStr:(NSString *)string;
+
+/**
+ *  MARK:- 划线
+ *   下划线
+ */
+-(void)setLablerBottomlineWithStr:(NSString *)string;
+
+/**
+ *  MARK:- 单一富文本
+ *
+ */
+-(void)setLablerAttKey:(NSAttributedStringKey)key withAttVaule:(id)value    WithStr:(NSString *)string;
