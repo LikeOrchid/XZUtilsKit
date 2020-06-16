@@ -74,7 +74,7 @@ const void *kAssociatedYf_contentInsets;
  */
 -(void)upageTextLineSpacing:(CGFloat) line withKer:(CGFloat) ker on:(NSMutableAttributedString *)attributeString{
     if (attributeString == nil) {
-        attributeString = [[NSMutableAttributedString alloc]initWithString:self.text];
+        attributeString = [[NSMutableAttributedString alloc]initWithAttributedString:self.attributedText];
     }
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     [paragraphStyle setLineSpacing:line];
@@ -94,7 +94,7 @@ const void *kAssociatedYf_contentInsets;
  @param string 要改变的字符串
  */
 -(void)setLableColor:(UIColor *)color withStr:(NSString *)string{
-    NSMutableAttributedString * attributeString = [[NSMutableAttributedString alloc]initWithString:self.text];
+    NSMutableAttributedString * attributeString = [[NSMutableAttributedString alloc]initWithAttributedString:self.attributedText];
     NSRange rang = [self.text rangeOfString:string];
     [attributeString addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(rang.location, string.length)];
     self.attributedText = attributeString;
@@ -117,7 +117,7 @@ const void *kAssociatedYf_contentInsets;
  @param rect 图片的位置
  */
 -(void)setLableImageName:(NSString *)name withFrame:(CGRect)rect{
-    NSMutableAttributedString *attri =     [[NSMutableAttributedString alloc] initWithString:self.text];
+    NSMutableAttributedString *attri =     [[NSMutableAttributedString alloc] initWithAttributedString:self.attributedText];
     NSTextAttachment *attch = [[NSTextAttachment alloc] init];
     attch.image = [UIImage imageNamed:name];
     // 设置图片大小
@@ -145,7 +145,7 @@ const void *kAssociatedYf_contentInsets;
         [rangesArray addObject:ranges];
     }
     
-    NSMutableAttributedString * attributeString = [[NSMutableAttributedString alloc]initWithString:self.text];
+    NSMutableAttributedString * attributeString = [[NSMutableAttributedString alloc]initWithAttributedString:self.attributedText];
 
     for (int i = 0; i<rangesArray.count; i++) {
         NSArray *ranges = [rangesArray objectAtIndex:i];
@@ -164,7 +164,7 @@ const void *kAssociatedYf_contentInsets;
  *  MARK:- 指定文字大小
  */
 -(void)setLaberFont:(UIFont *)font withStr:(NSString *)string {
-    NSMutableAttributedString * attributeString = [[NSMutableAttributedString alloc]initWithString:self.text];
+    NSMutableAttributedString * attributeString = [[NSMutableAttributedString alloc]initWithAttributedString:self.attributedText];
     NSRange rang = [self.text rangeOfString:string];
     [attributeString addAttribute:NSFontAttributeName value:font range:NSMakeRange(rang.location, string.length)];
     self.attributedText = attributeString;
@@ -176,7 +176,7 @@ const void *kAssociatedYf_contentInsets;
  */
 -(void)setLablerCenterlineWithStr:(NSString *)string {
   
-    NSMutableAttributedString * attributeString = [[NSMutableAttributedString alloc]initWithString:self.text];
+    NSMutableAttributedString * attributeString = [[NSMutableAttributedString alloc]initWithAttributedString:self.attributedText];
     NSRange rang = [self.text rangeOfString:string];
     [attributeString addAttribute:NSStrikethroughStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:NSMakeRange(rang.location, string.length)];
     self.attributedText = attributeString;
@@ -188,7 +188,7 @@ const void *kAssociatedYf_contentInsets;
  */
 -(void)setLablerBottomlineWithStr:(NSString *)string {
   
-    NSMutableAttributedString * attributeString = [[NSMutableAttributedString alloc]initWithString:self.text];
+    NSMutableAttributedString * attributeString = [[NSMutableAttributedString alloc]initWithAttributedString:self.attributedText];
     NSRange rang = [self.text rangeOfString:string];
     [attributeString addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:NSMakeRange(rang.location, string.length)];
     self.attributedText = attributeString;
@@ -199,7 +199,7 @@ const void *kAssociatedYf_contentInsets;
  */
 -(void)setLablerAttKey:(NSAttributedStringKey)key withAttVaule:(id)value    WithStr:(NSString *)string {
   
-    NSMutableAttributedString * attributeString = [[NSMutableAttributedString alloc]initWithString:self.text];
+    NSMutableAttributedString * attributeString = [[NSMutableAttributedString alloc]initWithAttributedString:self.attributedText];
     NSRange rang = [self.text rangeOfString:string];
     [attributeString addAttribute:key value:value range:NSMakeRange(rang.location, string.length)];
     self.attributedText = attributeString;
