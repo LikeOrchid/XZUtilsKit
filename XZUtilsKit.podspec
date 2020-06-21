@@ -1,7 +1,6 @@
-
 Pod::Spec.new do |s|
   s.name         = "XZUtilsKit"
-  s.version      = "0.1.5"
+  s.version      = "0.1.6"
   s.summary      = "custem tool. summary"
   s.description  = "custem tool description"
   s.homepage     = "https://github.com/LikeOrchid/XZUtilsKit"
@@ -13,3 +12,4 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '6.0'
   s.frameworks   = 'UIKit'
   s.requires_arc = true
+end
