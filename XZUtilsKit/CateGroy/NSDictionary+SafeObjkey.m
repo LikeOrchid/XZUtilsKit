@@ -333,7 +333,7 @@
 @end
 
 #pragma --mark NSMutableDictionary setter
-@implementation NSMutableDictionary (SafeAccess)
+@implementation NSMutableDictionary (SafeObjAccess)
 -(void)jk_setObj:(id)i forKey:(NSString*)key{
     if (i!=nil) {
         self[key] = i;

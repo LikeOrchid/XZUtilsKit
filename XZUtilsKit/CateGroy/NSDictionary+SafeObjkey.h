@@ -63,7 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma --mark NSMutableDictionary setter
 
-@interface NSMutableDictionary(SafeAccess)
+@interface NSMutableDictionary(SafeObjAccess)
 
 -(void)jk_setObj:(id)i forKey:(NSString*)key;
 
