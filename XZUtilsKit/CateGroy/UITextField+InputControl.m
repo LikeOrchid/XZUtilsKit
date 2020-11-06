@@ -62,7 +62,7 @@
  * MARK:  限制输入只能输入英文
  */
 -(BOOL)inputControlOnlyEnglish:(NSString *)string {
-    NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:ALPHANUM] invertedSet];
+    NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:ALPHA] invertedSet];
     NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
     if (![string isEqualToString:filtered]) {
         return NO;
@@ -74,7 +74,7 @@
  * MARK:  限制输入只能输入英文数字
  */
 -(BOOL)inputControlEnglishNum:(NSString *)string {
-    NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:ALPHA] invertedSet];
+    NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:ALPHANUM] invertedSet];
     NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
     if (![string isEqualToString:filtered]) {
         return NO;
